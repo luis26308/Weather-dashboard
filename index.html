@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles.css" type="text/css">
+    <!-- ajax supported jquery script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
@@ -23,15 +24,44 @@
     </div>
 
     <div class="row">
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0 col-3">
             <input class="form-control mr-sm-2 ml-4" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <main>
+        <section class="row">
+            <div class="col-12 ml-4 mt-4">
+                <h2 id="cityName" placeholder="City & date"></h2>
+                <p id="temp" placeholder="Temperature"></p>
+                <p id="humidity" placeholder="Humidity"></p>
+                <p id="wind" placeholder="Wind Speed"></p>
+                <p id="uv" placeholder="UV index"></p>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-3 list-group">
+                <button type="button" class="list-group-item list-group-item-action">Cras justo odio </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum ateros</button>
+            </div>
+            <div class="col-9">
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                  </ul>
+            </div>
+        </section>
+    </main>
 
+    <!-- Optional JavaScript -->
+    <!-- Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
