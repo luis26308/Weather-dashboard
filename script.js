@@ -10,34 +10,45 @@ function storeHistory() {
 
 function getHistory() {
     let savedCities = JSON.parse(localStorage.getItem("cities"));
+    if (cities.length >= 5) {
+        cities.shift()
+    }
     if (savedCities !== null) {
         cities = savedCities
+
     }
     historyButton();
 }
 
 function historyButton() {
     for (let i = 0; i < cities.length; i++) {
-        let historyB = $("<button>").attr("class", "list-group-item")
+        let historyB = $("<button>").attr("class", "list-group-item m-2 historyB")
         historyB.text(cities[i])
-        $(".history").append(historyB)
+        $(".history").prepend(historyB)
     }
 }
+
 
 
 
 $("button").on("click", function (event) {
     event.preventDefault();
     let cityWeather = $("input").val().trim()
-    cities.push(cityWeather)
-    if(cities.length > 8) {
-        cities.shift();
+    if (cityWeather === "") {
+        alert("Enter valid city")
     }
+    else {
+        cities.push(cityWeather)
+    }
+
+
+
     let api_key = "fe4a853726c79035bac73e26c523869e";
     let queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityWeather + "&appid=" + api_key
     let queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityWeather + "&appid=" + api_key
     storeHistory();
     historyButton();
+
 
     $.ajax({
         url: queryURL1,
@@ -71,6 +82,7 @@ $("button").on("click", function (event) {
 
                     let newCard = $("<div>").attr("class", "card text-white bg-primary");
                     newCol.append(newCard);
+
 
                     let cardImg = $("<img>").attr("class", "card-img-top").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
                     newCard.append(cardImg);
